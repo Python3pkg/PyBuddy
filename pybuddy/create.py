@@ -69,7 +69,7 @@ def create_project(name,
     for d in [project_dir, package_dir, tests_dir]:
         if not os.path.exists(d):
             os.mkdir(d)
-            print("Created: %s" % d)
+            print(("Created: %s" % d))
 
     # Template values
     template_values = {
@@ -111,10 +111,10 @@ def create_project(name,
         files[j_project('pytest.ini')] = j_templates('pytest.ini.tpl')
 
     # Create all files
-    for new_file, template_file in files.items():
+    for new_file, template_file in list(files.items()):
         with open(new_file, 'w') as f:
             f.write(utils.render_template_file(template_file,  **template_values))
 
-        print("Created: %s" % (new_file))
+        print(("Created: %s" % (new_file)))
 
     return project_dir

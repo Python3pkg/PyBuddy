@@ -44,7 +44,7 @@ def render_file(templateFile, renderedFile, log=True, **kwargs):
             f_out.write(render_string(f_in.read(), **kwargs))
 
         if log:
-            print("Created: %s" % renderedFile)
+            print(("Created: %s" % renderedFile))
 
 
 def call(command, log_file, removeLogOnSuccess=True):
